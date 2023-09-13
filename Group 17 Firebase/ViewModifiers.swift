@@ -11,7 +11,7 @@ struct CustomRoundedBorderTextFieldStyle: TextFieldStyle {
     @ScaledMetric(wrappedValue: 34) private var textFieldHeightNoPad
     
     func _body(configuration: TextField<Self._Label>) -> some View {
-        var textFieldHeight = textFieldHeightNoPad + 14
+        let textFieldHeight = textFieldHeightNoPad + 14
         ZStack {
             RoundedRectangle(cornerRadius: 4)
                 .stroke(Color(.lightGray))

@@ -18,10 +18,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Group_17_FirebaseApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var authenticator = Authenticator()
     
     var body: some Scene {
         WindowGroup {
             WelcomeView()
+                .environmentObject(authenticator)
         }
+        
     }
 }

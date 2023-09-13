@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LogInSheet: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var authenticator: Authenticator
     @State private var email = ""
     @State private var password = ""
     
@@ -24,7 +25,7 @@ struct LogInSheet: View {
             
             Section {
                 Button {
-                    
+                    authenticator.logIn(withEmail: email, password: password)
                 } label: {
                     Text("Log In")
                         .modifier(ButtonSize())
@@ -38,6 +39,10 @@ struct LogInSheet: View {
                         .modifier(ButtonSize())
                 }
                 .buttonStyle(.bordered)
+            }
+            
+            .onChange(of: authenticator.currentUser) { _ in
+                dismiss()
             }
         }
         .padding()

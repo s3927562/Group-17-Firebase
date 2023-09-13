@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterSheet: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var authenticator: Authenticator
     @State private var name = ""
     @State private var email = ""
     @State private var password = ""
@@ -28,7 +29,7 @@ struct RegisterSheet: View {
             
             Section {
                 Button {
-                    
+                    authenticator.register(withEmail: email, password: password)
                 } label: {
                     Text("Register")
                         .modifier(ButtonSize())
@@ -42,6 +43,10 @@ struct RegisterSheet: View {
                         .modifier(ButtonSize())
                 }
                 .buttonStyle(.bordered)
+            }
+            
+            .onChange(of: authenticator.currentUser) { _ in
+                dismiss()
             }
         }
         .padding()
