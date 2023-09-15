@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CustomRoundedBorderTextFieldStyle: TextFieldStyle {
     @ScaledMetric(wrappedValue: 34) private var textFieldHeightNoPad
+    @ScaledMetric(wrappedValue: 20) private var textFieldIconWidth
+    
+    let withImage: String
     
     func _body(configuration: TextField<Self._Label>) -> some View {
         let textFieldHeight = textFieldHeightNoPad + 14
@@ -17,9 +20,15 @@ struct CustomRoundedBorderTextFieldStyle: TextFieldStyle {
                 .stroke(Color(.lightGray))
                 .frame(maxWidth: .infinity, maxHeight: textFieldHeight)
             
-            configuration
+            HStack {
+                Image(systemName: withImage)
+                    .foregroundColor(Color(.lightGray))
+                    .frame(width: textFieldIconWidth)
+                configuration
+            }
                 .padding([.horizontal], 7)
         }
+        .padding([.vertical], 0.5)
     }
 }
 

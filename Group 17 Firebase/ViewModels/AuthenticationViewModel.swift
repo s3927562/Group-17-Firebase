@@ -35,18 +35,12 @@ class Authenticator: ObservableObject {
             } else {
                 self.currentUser = authResult?.user
                 self.authError = nil
-                var ref: DocumentReference? = nil
-                ref = Firestore.firestore().collection("users").addDocument(data: [
+                let db = Firestore.firestore()
+                let usersRef = db.collection("users")
+                usersRef.document("\(self.currentUser!.uid)").setData([
                     "name": name,
-                    "email": email,
-                    "uid": self.currentUser!.uid
-                ]) { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        print(ref!.documentID)
-                    }
-                }
+                    "email": email
+                ])
             }
         }
     }

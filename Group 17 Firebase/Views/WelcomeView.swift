@@ -42,7 +42,7 @@ struct WelcomeView: View {
                 .buttonStyle(.bordered)
                 
                 .navigationDestination(isPresented: $isLoggedIn) {
-                    EmptyView()
+                    MainView()
                 }
             }
             .padding()
@@ -76,7 +76,10 @@ struct WelcomeView: View {
 }
 
 struct WelcomeView_Previews: PreviewProvider {
+    @StateObject private static var authenticator = Authenticator()
+    
     static var previews: some View {
         WelcomeView()
+            .environmentObject(authenticator)
     }
 }

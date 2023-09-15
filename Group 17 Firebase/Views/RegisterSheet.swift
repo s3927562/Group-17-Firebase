@@ -1,5 +1,5 @@
 //
-//  LogInSheet.swift
+//  RegisterSheet.swift
 //  Group 17 Firebase
 //
 //  Created by Tung Tran Thanh on 12/09/2023.
@@ -7,21 +7,29 @@
 
 import SwiftUI
 
-struct LogInSheet: View {
+struct RegisterSheet: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var authenticator: Authenticator
+    @State private var name = ""
     @State private var email = ""
     @State private var password = ""
     
     var body: some View {
         VStack {
+            Text("Register")
+                .font(.largeTitle)
+                .bold()
+            
+            TextField("Name", text: $name, prompt: Text("Name"))
+                .autocorrectionDisabled(true)
+                .textFieldStyle(CustomRoundedBorderTextFieldStyle(withImage: "person.fill"))
             TextField("Email", text: $email, prompt: Text("Email"))
                 .autocorrectionDisabled(true)
                 .textInputAutocapitalization(.never)
                 .keyboardType(.emailAddress)
-                .textFieldStyle(CustomRoundedBorderTextFieldStyle())
+                .textFieldStyle(CustomRoundedBorderTextFieldStyle(withImage: "envelope.fill"))
             SecureField("Password", text: $password, prompt: Text("Password"))
-                .textFieldStyle(CustomRoundedBorderTextFieldStyle())
+                .textFieldStyle(CustomRoundedBorderTextFieldStyle(withImage: "key.horizontal.fill"))
             
             Text(authenticator.authError ?? "")
                 .font(.caption)
@@ -30,9 +38,10 @@ struct LogInSheet: View {
             
             Section {
                 Button {
-                    authenticator.logIn(withEmail: email, password: password)
+                    authenticator.register(withEmail: email, password: password, name: name)
+                    
                 } label: {
-                    Text("Log In")
+                    Text("Register")
                         .modifier(ButtonSize())
                 }
                 .buttonStyle(.borderedProminent)
@@ -54,8 +63,11 @@ struct LogInSheet: View {
     }
 }
 
-struct LogInSheet_Previews: PreviewProvider {
+struct RegisterSheet_Previews: PreviewProvider {
+    @StateObject private static var authenticator = Authenticator()
+    
     static var previews: some View {
-        LogInSheet()
+        RegisterSheet()
+            .environmentObject(authenticator)
     }
 }
