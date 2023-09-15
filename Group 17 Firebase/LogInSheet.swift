@@ -23,6 +23,11 @@ struct LogInSheet: View {
             SecureField("Password", text: $password, prompt: Text("Password"))
                 .textFieldStyle(CustomRoundedBorderTextFieldStyle())
             
+            Text(authenticator.authError ?? "")
+                .font(.caption)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+            
             Section {
                 Button {
                     authenticator.logIn(withEmail: email, password: password)

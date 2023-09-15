@@ -27,9 +27,15 @@ struct RegisterSheet: View {
             SecureField("Password", text: $password, prompt: Text("Password"))
                 .textFieldStyle(CustomRoundedBorderTextFieldStyle())
             
+            Text(authenticator.authError ?? "")
+                .font(.caption)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+            
             Section {
                 Button {
-                    authenticator.register(withEmail: email, password: password)
+                    authenticator.register(withEmail: email, password: password, name: name)
+                    
                 } label: {
                     Text("Register")
                         .modifier(ButtonSize())

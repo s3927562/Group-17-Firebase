@@ -12,6 +12,7 @@ struct EmptyView: View {
     
     var body: some View {
         VStack {
+            Text("Welcome, \()")
             Button {
                 authenticator.logOut()
             } label: {

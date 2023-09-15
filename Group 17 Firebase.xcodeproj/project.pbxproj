@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		149626952AB1E6F300746237 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149626942AB1E6F300746237 /* AuthenticationViewModel.swift */; };
 		149626972AB1E8E800746237 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149626962AB1E8E800746237 /* EmptyView.swift */; };
+		149FD4E22AB45B890082C71F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149FD4E12AB45B890082C71F /* UserViewModel.swift */; };
 		14EDAB3F2AB083EA00A19CD7 /* Group_17_FirebaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDAB3E2AB083EA00A19CD7 /* Group_17_FirebaseApp.swift */; };
 		14EDAB412AB083EA00A19CD7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDAB402AB083EA00A19CD7 /* WelcomeView.swift */; };
 		14EDAB432AB083EC00A19CD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14EDAB422AB083EC00A19CD7 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		149626942AB1E6F300746237 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		149626962AB1E8E800746237 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		149FD4E12AB45B890082C71F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		14EDAB3B2AB083EA00A19CD7 /* Group 17 Firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Group 17 Firebase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14EDAB3E2AB083EA00A19CD7 /* Group_17_FirebaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group_17_FirebaseApp.swift; sourceTree = "<group>"; };
 		14EDAB402AB083EA00A19CD7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				14EDAB402AB083EA00A19CD7 /* WelcomeView.swift */,
 				14EDAB612AB0907000A19CD7 /* LogInSheet.swift */,
 				149626942AB1E6F300746237 /* AuthenticationViewModel.swift */,
+				149FD4E12AB45B890082C71F /* UserViewModel.swift */,
 				14EDAB632AB0915F00A19CD7 /* RegisterSheet.swift */,
 				149626962AB1E8E800746237 /* EmptyView.swift */,
 				14EDAB422AB083EC00A19CD7 /* Assets.xcassets */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149626952AB1E6F300746237 /* AuthenticationViewModel.swift in Sources */,
+				149FD4E22AB45B890082C71F /* UserViewModel.swift in Sources */,
 				14EDAB6D2AB0A11800A19CD7 /* ViewModifiers.swift in Sources */,
 				14EDAB642AB0915F00A19CD7 /* RegisterSheet.swift in Sources */,
 				14EDAB412AB083EA00A19CD7 /* WelcomeView.swift in Sources */,

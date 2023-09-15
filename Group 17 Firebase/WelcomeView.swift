@@ -23,6 +23,8 @@ struct WelcomeView: View {
             VStack {
                 Text("Hello, world!")
                     .font(.largeTitle)
+                    .bold()
+                
                 Button {
                     showSheet = .logIn
                 } label: {
@@ -45,7 +47,9 @@ struct WelcomeView: View {
             }
             .padding()
             
-            .sheet(item: $showSheet) { sheet in
+            .sheet(item: $showSheet, onDismiss: {
+                authenticator.authError = nil
+            }) { sheet in
                 switch sheet {
                 case .logIn: LogInSheet()
                 case .register: RegisterSheet()
